@@ -1,11 +1,12 @@
-import tkinter
+import collections.abc
+import os
+
+import requests
+from bardapi import Bard
+from pptx import Presentation
+from PyPDF2 import PdfReader
 
 import bard
 
-window = tkinter.Tk()
-
-window.title("Bard")
-window.geometry("640x400+100+100")
-window.resizable(False, False)
-
-window.mainloop()
+if __name__ == "__main__":
+    bard.run()
