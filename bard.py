@@ -55,16 +55,15 @@ def text2bard(TOKEN, text: str, answer: str):
     }
     session.cookies.set("__Secure-1PSID", os.getenv("_BARD_API_KEY"))
 
-    bard = Bard(session=session, timeout=30)
+    bard = Bard(session=session, timeout=20)
 
     text_split = [text[i : i + 3500] for i in range(0, len(text), 3500)]
 
     for s in text_split:
-        s = s + "이건 논문이야"
-        bard.get_answer(s)["content"]
-
-    respone = bard.get_answer(answer)["content"]
-    print(respone)
+        bard.get_answer(s)
+        if s == text_split[-1]:
+            answer = s + "\n" + answer
+            respone = bard.get_answer(answer)["content"]
 
     return respone
 

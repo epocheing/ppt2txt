@@ -166,3 +166,4 @@ bard_token.py
 *.pptx
 *.pdf
 *.txt
+bard_api.py
